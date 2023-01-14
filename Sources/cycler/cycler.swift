@@ -20,12 +20,12 @@ struct Cycler: ParsableCommand {
         if let app = app {
             let isHidden = app.isHidden
             if isHidden {
-                app.unhide()
+                NSWorkspace.shared.launchApplication(nameOrId)
             } else {
                 app.hide()
             }
         } else {
-            print("App with name or bundleId: \(nameOrId) not found")
+            print("Failed to launch app with name or bundleId: \(nameOrId)")
         }
     }
 }
